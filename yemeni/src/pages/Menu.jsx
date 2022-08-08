@@ -17,12 +17,12 @@ const Menu = () => {
     data: categories,
     isLoading: isLoadingCategories,
     isError: isCategoriesError,
-  } = useFetch("http://localhost:8000/food/categories/");
+  } = useFetch("https://yemeniredsea.herokuapp.com/food/categories/");
   const {
     data: dishs,
     isLoading: isLoadingDishs,
     isError: isdishsError,
-  } = useFetch("http://localhost:8000/food/food/");
+  } = useFetch("https://yemeniredsea.herokuapp.com/food/food/");
 
   useEffect(() => {
     if (!(isLoadingDishs && isLoadingCategories)) {
