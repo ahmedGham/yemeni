@@ -84,12 +84,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'red-sea',
+#         'USER':'red-sea',
+#         'PASSWORD':'@red_sea776441777',
+        
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'red-sea',
-        'USER':'red-sea',
-        'PASSWORD':'@red_sea776441777',
+        'NAME': 'd8u48iq7nmchfj',
+        'USER': 'ixvflrdeiukckt',
+        'PASSWORD': '945db9d93d9ea72c6e9b16508d9fc52aa1b3fbd133486fbec38bcc00df49ad32',
+        'HOST': 'ec2-99-80-170-190.eu-west-1.compute.amazonaws.com',
     }
 }
 
