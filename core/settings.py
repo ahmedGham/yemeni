@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import os 
+import os
 import django_heroku
 from pathlib import Path
 
@@ -26,12 +26,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (str(os.environ.get('DEBUG'))=="1")
+DEBUG = (str(os.environ.get('DEBUG')) == "1")
 
 ALLOWED_HOSTS = []
 
 if not DEBUG:
-    ALLOWED_HOSTS+=[os.environ.get('ALLOWED_HOST')]
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST')]
 
 
 # Application definition
@@ -65,7 +65,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'yemeni','build')],
+        'DIRS': [os.path.join(BASE_DIR, 'yemeni', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,27 +81,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'red-sea',
-#         'USER':'red-sea',
-#         'PASSWORD':'@red_sea776441777',
-        
-#     }
-# }
-
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8u48iq7nmchfj',
-        'USER': 'ixvflrdeiukckt',
-        'PASSWORD': '945db9d93d9ea72c6e9b16508d9fc52aa1b3fbd133486fbec38bcc00df49ad32',
-        'HOST': 'ec2-99-80-170-190.eu-west-1.compute.amazonaws.com',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
     }
 }
 
@@ -155,10 +142,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "https://yemeniredsea.herokuapp.com",
+    'http://localhost:3000',
 ]
 
 
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 django_heroku.settings(locals())

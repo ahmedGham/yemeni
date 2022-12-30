@@ -9,6 +9,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class FoodSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(many=True)
     class Meta:
         model = models.Food
         fields = '__all__'
